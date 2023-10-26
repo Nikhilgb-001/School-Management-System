@@ -19,4 +19,5 @@ public class Parent {
     private String motherName;
     private String fatherName;
     private String address;
+    private String childName;
 }

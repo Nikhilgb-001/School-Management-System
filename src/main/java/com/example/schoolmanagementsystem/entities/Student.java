@@ -1,7 +1,5 @@
 package com.example.schoolmanagementsystem.entities;
 
-import java.util.List;
-
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import jakarta.persistence.Entity;
@@ -10,8 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
 
@@ -31,17 +27,16 @@ public class Student {
     private String fees;
     private String email;
 
-    // @OneToOne
-    // @JoinColumn(name = "parent_id")
-    // private Parent parents;
-
-    // @ManyToMany
-    // @JoinTable(
-    //         name = "Student_Subject",
-    //         joinColumns = @JoinColumn(name = "Student_ID"),
-    //         inverseJoinColumns = @JoinColumn(name = "Subject_ID")
-    // )
-    // private List<Subject> subjects;
+    // Relationship and Mapping 
+    @OneToOne
+    @JoinColumn(name = "parent_id")
+    private Parent parents;
 
     private String studentImage;
 }
+
+
+// http://localhost:8080/students/1/parents url-1
+// http://localhost:8080/parents/4 url-2
+
+// http://localhost:8080/students/2/upload file upoload url

@@ -1,7 +1,6 @@
 package com.example.schoolmanagementsystem.entities;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +13,7 @@ import lombok.Data;
 @Data
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-public class StudentDashbord {
+public class Dashbord {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -23,14 +22,17 @@ public class StudentDashbord {
 
     private Integer fees;
 
-    private Integer remarks;
+    private String remarks;
 
     private Integer marks;
 
     private String password;
 
-    // @OneToOne
-    // @JoinColumn(name = "parent_Id")
-    // private Parent parent;
+    @OneToOne
+    @JoinColumn(name = "parent_Id")
+    private Parent parent;
 
 }
+
+// http://localhost:8080/dashbords/2/parent url-1
+// http://localhost:8080/parents/2 url-2

@@ -22,8 +22,8 @@ public class Subject {
     private Integer ID;
 
     private String subjectName;
-    private String chapter;
+    private String teacherName;
 
-    // @OneToMany(mappedBy = "subjects")
-    // List <Teacher> teachers;
+    @OneToMany(mappedBy = "subjects")
+    List <Teacher> teachers;
 }
